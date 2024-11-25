@@ -15,6 +15,15 @@ class FifteenGame:
         self.menu.add_cascade(label="Игра", menu=self.game_menu)
         self.game_menu.add_command(label="Новая игра", command=self.new_game)
 
+        #Уровни сложности 
+        self.difficulty_menu = tk.Menu(self.menu, tearoff=0)
+        self.menu.add_cascade(label="Сложность", menu=self.difficulty_menu)
+        self.difficulty_menu.add_command(label="3x3", command=lambda: self.set_size(3))
+        self.difficulty_menu.add_command(label="4x4", command=lambda: self.set_size(4))
+        self.difficulty_menu.add_command(label="5x5", command=lambda: self.set_size(5))
+
+        self.menu.add_command(label="Выход", command=self.root.quit)
+
         # Игровое поле
         self.frame = tk.Frame(self.root)
         self.frame.pack(expand=True, fill=tk.BOTH)
