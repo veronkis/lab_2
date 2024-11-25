@@ -7,6 +7,14 @@ class FifteenGame:
         self.root = root
         self.root.title("Игра в 15")
 
+        #Меню
+        self.menu = tk.Menu(root)
+        self.root.config(menu=self.menu)
+
+        self.game_menu = tk.Menu(self.menu, tearoff=0)
+        self.menu.add_cascade(label="Игра", menu=self.game_menu)
+        self.game_menu.add_command(label="Новая игра", command=self.new_game)
+
         # Игровое поле
         self.frame = tk.Frame(self.root)
         self.frame.pack(expand=True, fill=tk.BOTH)
